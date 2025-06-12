@@ -12,7 +12,13 @@ interface BodyTabProps {
   showWarning: boolean;
 }
 
-export default function BodyTab({ body, setBody, hasError, onValidate, showWarning }: BodyTabProps) {
+export default function BodyTab({
+  body,
+  setBody,
+  hasError,
+  onValidate,
+  showWarning,
+}: BodyTabProps) {
   const [jsonError, setJsonError] = useState<string>("");
   const [isValid, setIsValid] = useState<boolean | null>(null);
 
@@ -35,7 +41,7 @@ export default function BodyTab({ body, setBody, hasError, onValidate, showWarni
 
   const formatJson = () => {
     if (!body.trim()) return;
-    
+
     try {
       const parsed = JSON.parse(body);
       const formatted = JSON.stringify(parsed, null, 2);
@@ -58,8 +64,10 @@ export default function BodyTab({ body, setBody, hasError, onValidate, showWarni
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-medium text-gray-900">Request Body</h3>
         <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-600">Content-Type: application/json</span>
-          <Button 
+          <span className="text-sm text-gray-600">
+            Content-Type: application/json
+          </span>
+          <Button
             onClick={formatJson}
             variant="outline"
             size="sm"
@@ -70,16 +78,18 @@ export default function BodyTab({ body, setBody, hasError, onValidate, showWarni
           </Button>
         </div>
       </div>
-      
+
       <div className="relative">
         <Textarea
           placeholder={`Enter JSON here, e.g.\n{\n  "name": "John Doe",\n  "email": "john@example.com"\n}`}
           value={body}
           onChange={(e) => handleBodyChange(e.target.value)}
-          className={`font-mono h-64 resize-none ${hasError ? 'border-error' : ''}`}
+          className={`font-mono h-64 resize-none ${
+            hasError ? "border-error" : ""
+          }`}
           spellCheck={false}
         />
-        
+
         {/* JSON Status Indicator */}
         <div className="absolute top-3 right-3">
           {isValid === true && (
@@ -95,7 +105,7 @@ export default function BodyTab({ body, setBody, hasError, onValidate, showWarni
             </div>
           )}
         </div>
-        
+
         {/* JSON Error Message */}
         {hasError && jsonError && (
           <Alert className="mt-2 border-destructive">
@@ -107,7 +117,7 @@ export default function BodyTab({ body, setBody, hasError, onValidate, showWarni
           </Alert>
         )}
       </div>
-      
+
       {/* Body Method Notice */}
       {showWarning && (
         <Alert className="border-warning bg-yellow-50">

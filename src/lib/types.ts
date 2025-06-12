@@ -6,13 +6,13 @@ export interface KeyValuePair {
 }
 
 export interface AuthConfig {
-  type: 'none' | 'bearer' | 'basic' | 'apikey';
+  type: "none" | "bearer" | "basic" | "apikey";
   token?: string;
   username?: string;
   password?: string;
   keyName?: string;
   keyValue?: string;
-  keyLocation?: 'header' | 'query';
+  keyLocation?: "header" | "query";
 }
 
 export interface RequestConfig {
@@ -27,6 +27,13 @@ export interface RequestConfig {
   };
 }
 
-export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD' | 'OPTIONS';
+export type HttpMethod =
+  | "GET"
+  | "POST"
+  | "PUT"
+  | "DELETE"
+  | "PATCH"
+  | "HEAD"
+  | "OPTIONS";
 
-export type TabType = 'params' | 'auth' | 'headers' | 'body';
+export type TabType = "params" | "auth" | "headers" | "body";

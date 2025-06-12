@@ -12,17 +12,23 @@ interface KeyValueRowProps {
   hasError: boolean;
 }
 
-export default function KeyValueRow({ item, onUpdate, onRemove, onValidate, hasError }: KeyValueRowProps) {
+export default function KeyValueRow({
+  item,
+  onUpdate,
+  onRemove,
+  onValidate,
+  hasError,
+}: KeyValueRowProps) {
   const handleKeyChange = (value: string) => {
-    onUpdate('key', value);
+    onUpdate("key", value);
   };
 
   const handleValueChange = (value: string) => {
-    onUpdate('value', value);
+    onUpdate("value", value);
   };
 
   const handleEnabledChange = (checked: boolean) => {
-    onUpdate('enabled', checked);
+    onUpdate("enabled", checked);
   };
 
   const handleBlur = () => {
