@@ -27,13 +27,6 @@ export interface RequestConfig {
   };
 }
 
-export interface ValidationErrors {
-  url: boolean;
-  params: string[];
-  headers: string[];
-  json: boolean;
-}
-
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD' | 'OPTIONS';
 
 export type TabType = 'params' | 'auth' | 'headers' | 'body';
